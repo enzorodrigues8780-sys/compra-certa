@@ -1,0 +1,1 @@
+@media (hover:hover){a,button,summary{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background-color .18s ease}a:hover,button:hover:not(:disabled),summary:hover{transform:translateY(-3px);box-shadow:0 8px 18px #00000028}}a:active,button:active:not(:disabled),summary:active{transform:translateY(0) scale(.98)}

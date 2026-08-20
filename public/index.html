@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compra Certa: verifique links, reconheça golpes e aprenda a se proteger online.">
+  <title>Compra Certa | Verifique antes de clicar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="platform.css">
+  <link rel="stylesheet" href="interactions.css">
+  <link rel="stylesheet" href="virustotal.css">
+  <link rel="stylesheet" href="new-check.css">
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#inicio" aria-label="Compra Certa — início">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 19 6v5c0 4.6-2.9 8.1-7 10-4.1-1.9-7-5.4-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.8"/><path d="m8.8 12 2.1 2.1 4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>Compra <strong>Certa</strong></span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-menu">
+      <span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span>
+    </button>
+    <nav class="main-menu" id="main-menu" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="aprenda.html">Aprenda</a>
+      <a href="desafios.html">Desafios</a>
+      <a href="dados.html">Dados</a>
+      <a href="#fui-vitima">Fui vítima</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> Inteligência e proteção digital</p>
+        <h1 id="hero-title">Antes de confiar.<br>Antes de clicar.<br><em>Verifique.</em></h1>
+        <p class="hero-text">Aprenda a identificar desinformação, reconhecer golpes e verificar links suspeitos antes de agir.</p>
+
+        <form class="checker" id="url-form" novalidate>
+          <label for="url-input">Recebeu um link suspeito?</label>
+          <div class="input-row">
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M10.6 13.4a4 4 0 0 0 5.7.1l2.5-2.5a4 4 0 0 0-5.7-5.7l-1.4 1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m13.4 10.6-2.8 2.8a4 4 0 0 1-5.7.1 4 4 0 0 1 .1-5.7l2.5-2.5a4 4 0 0 1 5.7 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <input id="url-input" name="url" type="text" inputmode="url" autocomplete="url" placeholder="Cole o link aqui" maxlength="2048" aria-describedby="form-feedback privacy-note" required>
+            <button class="verify-button" id="verify-button" type="submit"><span class="button-label">Analisar link</span><span class="spinner" aria-hidden="true"></span></button>
+          </div>
+          <p class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></p>
+        </form>
+        <p class="privacy-note" id="privacy-note"><span aria-hidden="true">🔒</span> Não clique no link para verificá-lo. Cole o endereço aqui primeiro.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="shield-large">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.7 20 6v5.7c0 5.1-3.3 8.9-8 10.9-4.7-2-8-5.8-8-10.9V6l8-3.3Z" stroke="currentColor" stroke-width="1.1"/><path d="m8.6 12.2 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="signal-card"><span class="signal-dot"></span><div><small>Proteção ativa</small><strong>Consulta segura</strong></div></div>
+        <div class="url-chip">https://<i></i><i></i><i></i>.com</div>
+      </div>
+    </section>
+
+    <section class="result-section" id="result-section" hidden aria-live="polite" aria-labelledby="result-title">
+      <div class="result-card" id="result-card">
+        <div class="result-topline"><span>RESULTADO DA VERIFICAÇÃO</span><span class="result-time">Consulta concluída agora</span></div>
+        <div class="result-main">
+          <div class="result-icon" id="result-icon" aria-hidden="true"></div>
+          <div><p class="result-status" id="result-status"></p><h2 id="result-title"></h2><p class="result-message" id="result-message"></p></div>
+        </div>
+        <div class="result-details">
+          <div><span>URL analisada</span><code id="result-url"></code></div>
+          <div id="threat-detail" hidden><span>Tipo de ameaça</span><strong id="threat-types"></strong></div>
+        </div>
+        <div class="supplementary-analysis" id="vt-detail" hidden>
+          <div><span class="analysis-label">ANÁLISE COMPLEMENTAR</span><strong>VirusTotal</strong></div>
+          <p id="vt-text"></p>
+        </div>
+        <p class="result-disclaimer">Este resultado indica apenas ameaças conhecidas no momento da consulta. Ele não garante que um site seja legítimo ou totalmente seguro.</p>
+        <button class="new-check-button" id="new-check-button" type="button">Fazer nova verificação</button>
+      </div>
+    </section>
+
+    <section class="how-it-works section" id="como-funciona" aria-labelledby="how-title">
+      <div class="section-intro"><p class="eyebrow"><span></span> Processo simples</p><h2 id="how-title">Verifique antes de confiar.</h2><p>Uma checagem objetiva para ajudar você a tomar decisões mais conscientes ao navegar.</p></div>
+      <div class="steps">
+        <article class="step-card"><span class="step-number">01</span><div class="step-icon" aria-hidden="true">↗</div><h3>Cole o link</h3><p>Insira a URL que você deseja verificar.</p></article>
+        <article class="step-card"><span class="step-number">02</span><div class="step-icon" aria-hidden="true">⌁</div><h3>Verifique</h3><p>O Compra Certa consulta um serviço de segurança para verificar ameaças conhecidas.</p></article>
+        <article class="step-card"><span class="step-number">03</span><div class="step-icon" aria-hidden="true">✓</div><h3>Entenda</h3><p>Veja o resultado de forma simples e objetiva.</p></article>
+      </div>
+    </section>
+
+    <section class="pillars section" id="aprender" aria-labelledby="pillars-title">
+      <div class="section-intro"><p class="eyebrow"><span></span> Aprenda a se proteger</p><h2 id="pillars-title">Informação para agir com mais calma.</h2><p>O Compra Certa não pede que você confie cegamente. Ele ajuda você a observar sinais, buscar fontes e tomar decisões melhores.</p></div>
+      <div class="pillar-grid">
+        <article class="pillar-card"><span class="pillar-icon">⌕</span><h3>Verifique</h3><p>Analise links antes de acessá-los e confirme a origem de uma informação.</p><a href="#inicio">Analisar um link →</a></article>
+        <article class="pillar-card"><span class="pillar-icon">◌</span><h3>Entenda</h3><p>Conheça como desinformação, emoção e contexto podem influenciar decisões rápidas.</p><a href="#pare">Conhecer o método PARE →</a></article>
+        <article class="pillar-card"><span class="pillar-icon">◈</span><h3>Proteja-se</h3><p>Reconheça sinais comuns de phishing, páginas falsas e pedidos de dados.</p><a href="#dicas">Ver sinais de alerta →</a></article>
+        <article class="pillar-card"><span class="pillar-icon">✦</span><h3>Prepare-se</h3><p>Entenda os riscos de conteúdo sintético, IA generativa e deepfakes.</p><a href="#ia">Sobre IA e deepfakes →</a></article>
+      </div>
+    </section>
+
+    <section class="pare section" id="pare" aria-labelledby="pare-title">
+      <div class="pare-copy"><p class="eyebrow"><span></span> Método educativo Compra Certa</p><h2 id="pare-title">PARE antes de compartilhar.</h2><p>Um lembrete simples para reduzir decisões por impulso. Não é uma certificação, nem substitui a verificação por fontes confiáveis.</p></div>
+      <ol class="pare-steps">
+        <li><b>P</b><div><strong>Pare</strong><span>Antes de clicar ou compartilhar.</span></div></li>
+        <li><b>A</b><div><strong>Analise</strong><span>Quem publicou e com qual objetivo.</span></div></li>
+        <li><b>R</b><div><strong>Rastreie</strong><span>Procure a fonte original.</span></div></li>
+        <li><b>E</b><div><strong>Examine</strong><span>Evidências, data e outras fontes.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="tips section" id="dicas" aria-labelledby="tips-title">
+      <div class="tips-header"><p class="eyebrow"><span></span> Navegação consciente</p><h2 id="tips-title">Segurança começa<br>antes do clique.</h2></div>
+      <ul class="tips-list">
+        <li><span>01</span><p>Confira o endereço</p></li>
+        <li><span>02</span><p>Desconfie de links recebidos inesperadamente</p></li>
+        <li><span>03</span><p>Não informe dados pessoais em sites suspeitos</p></li>
+        <li><span>04</span><p>Desconfie de ofertas absurdamente baratas</p></li>
+        <li><span>05</span><p>Confira o domínio antes de continuar</p></li>
+      </ul>
+    </section>
+
+    <section class="topic-section section" id="ia" aria-labelledby="ia-title">
+      <div class="topic-copy"><p class="eyebrow"><span></span> IA e deepfakes</p><h2 id="ia-title">Tecnologia pode parecer convincente. Contexto continua essencial.</h2><p>Textos, imagens, vozes e vídeos podem ser gerados ou alterados. Um detalhe visual isolado não prova que algo é real ou falso: confirme informações importantes por outro canal e procure a origem do conteúdo.</p></div>
+      <div class="topic-cards"><article><span>ORIGEM</span><h3>Quem publicou?</h3><p>Priorize o perfil, canal ou instituição oficial.</p></article><article><span>CONTEXTO</span><h3>Quando e onde?</h3><p>Conteúdo verdadeiro pode ser usado fora de contexto.</p></article><article><span>CONFIRMAÇÃO</span><h3>Há outra fonte?</h3><p>Busque confirmações independentes antes de agir.</p></article></div>
+    </section>
+
+    <section class="emergency section" id="fui-vitima" aria-labelledby="emergency-title">
+      <div class="emergency-heading"><p class="eyebrow"><span></span> Modo de orientação</p><h2 id="emergency-title">Aconteceu algo? Comece pelo agora.</h2><p>Selecione a situação. As orientações são gerais e não substituem o atendimento do seu banco, da plataforma ou das autoridades.</p></div>
+      <div class="incident-options" role="group" aria-label="Selecione o que aconteceu"><button type="button" data-incident="senha">Entreguei minha senha</button><button type="button" data-incident="pix">Fiz um Pix</button><button type="button" data-incident="conta">Perdi minha conta</button><button type="button" data-incident="link">Cliquei em um link</button></div>
+      <article class="incident-result" id="incident-result" hidden aria-live="polite"><p class="incident-label">PRÓXIMOS PASSOS</p><h3 id="incident-title"></h3><div id="incident-actions"></div><a class="source-link" id="incident-source" target="_blank" rel="noopener noreferrer">Consultar orientação oficial ↗</a></article>
+    </section>
+
+    <section class="sources section" id="fontes" aria-labelledby="sources-title">
+      <div class="section-intro"><p class="eyebrow"><span></span> Transparência</p><h2 id="sources-title">Fontes para continuar verificando.</h2><p>Selecionamos materiais públicos de instituições. Eles complementam este site e devem ser consultados para orientações específicas e atualizadas.</p></div>
+      <div class="source-grid">
+        <a href="https://cartilha.cert.br/" target="_blank" rel="noopener noreferrer"><strong>CERT.br / NIC.br</strong><span>Cartilha de Segurança para Internet</span><small>Segurança, golpes e privacidade ↗</small></a>
+        <a href="https://www.bcb.gov.br/estabilidadefinanceira/pix-seguranca" target="_blank" rel="noopener noreferrer"><strong>Banco Central</strong><span>Segurança no Pix</span><small>Prevenção e resposta a fraudes ↗</small></a>
+        <a href="https://www.gov.br/anatel/pt-br/assuntos/dicas-contra-fraudes/dicas-de-seguranca-contra-fraudes" target="_blank" rel="noopener noreferrer"><strong>Anatel</strong><span>Dicas contra fraudes</span><small>Orientações ao consumidor ↗</small></a>
+        <a href="https://www.cisa.gov/topics/cyber-threats-and-advisories/malware-phishing-and-ransomware" target="_blank" rel="noopener noreferrer"><strong>CISA</strong><span>Phishing e malware</span><small>Referência internacional ↗</small></a>
+      </div>
+    </section>
+
+    <aside class="notice" aria-label="Aviso importante"><span aria-hidden="true">i</span><p><strong>Não somos infalíveis.</strong> O Compra Certa consulta ameaças conhecidas associadas a URLs. Uma URL sem alerta não é necessariamente legítima ou segura; ameaças novas e golpes por engenharia social podem não ser detectados.</p></aside>
+  </main>
+
+  <footer class="site-footer">
+    <div><a class="logo" href="#inicio"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 19 6v5c0 4.6-2.9 8.1-7 10-4.1-1.9-7-5.4-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.8"/></svg></span><span>Compra <strong>Certa</strong></span></a><p>Segurança digital mais simples.</p></div>
+    <nav aria-label="Links do rodapé"><a href="#inicio">Início</a><a href="aprenda.html">Aprenda</a><a href="desafios.html">Desafios</a><a href="dados.html">Dados</a><a href="#fui-vitima">Fui vítima</a><a href="#fontes">Fontes</a></nav>
+    <p class="copyright">© 2026 Compra Certa</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="accessibility.js"></script>
+</body>
+</html>

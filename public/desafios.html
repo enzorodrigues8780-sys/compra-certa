@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desafios educativos de segurança digital do Compra Certa."><title>Desafios | Compra Certa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="challenges.css"><link rel="stylesheet" href="interactions.css"><link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+  <header class="site-header"><a class="logo" href="index.html" aria-label="Compra Certa — início"><span class="logo-mark" aria-hidden="true">✓</span><span>Compra <strong>Certa</strong></span></a><a class="back-home" href="index.html">← Início</a></header>
+  <main>
+    <section class="challenge-hero"><p class="eyebrow"><span></span> Aprendizado prático</p><h1>Treine o olhar.<br><em>Ganhe mais calma.</em></h1><p>Exercícios rápidos para reconhecer sinais de alerta antes de clicar, pagar ou compartilhar. Os cenários são inteiramente fictícios.</p><div class="privacy-chip">✓ Nenhuma resposta é enviada ou salva fora deste navegador.</div></section>
+    <section class="challenge-layout" aria-label="Desafio de segurança digital">
+      <aside class="challenge-side"><p class="side-label">DESAFIO 01</p><h2>Encontre o sinal.</h2><p>Leia cada cenário fictício e escolha o principal sinal de alerta.</p><div class="progress-wrap"><div><span id="progress-text">Pergunta 1 de 5</span><strong id="score-text">0 pontos</strong></div><div class="progress-track"><span id="progress-bar"></span></div></div><button class="restart" id="restart-button" type="button" hidden>Refazer desafio</button></aside>
+      <section class="challenge-card" id="challenge-card" aria-live="polite"><p class="fiction-tag">EXEMPLO FICTÍCIO</p><p class="scenario-channel" id="scenario-channel"></p><h3 id="scenario-title"></h3><div class="scenario-message" id="scenario-message"></div><p class="question" id="question-text">Qual é o principal sinal de alerta?</p><div class="answer-list" id="answer-list"></div><div class="answer-feedback" id="answer-feedback" hidden><strong id="feedback-title"></strong><p id="feedback-text"></p><button type="button" id="next-button">Próxima pergunta →</button></div></section>
+    </section>
+    <section class="decision section" aria-labelledby="decision-title"><div class="decision-copy"><p class="eyebrow"><span></span> Cenário rápido</p><h2 id="decision-title">Você clicaria?</h2><p>Uma pergunta curta para treinar uma pausa antes da ação.</p></div><article class="decision-card"><span class="fiction-tag">EXEMPLO FICTÍCIO</span><p class="decision-message">“Você recebeu um QR Code em uma mensagem inesperada. A pessoa afirma que é para ‘confirmar sua conta’ e pede que você escaneie agora.”</p><div class="decision-buttons"><button type="button" data-decision="pause">Eu paro e confirmo pelo canal oficial</button><button type="button" data-decision="click">Eu escaneio para ver o que é</button></div><p class="decision-feedback" id="decision-feedback" aria-live="polite"></p></article></section>
+    <section class="level-section section"><p class="eyebrow"><span></span> Progresso educativo</p><h2>Praticar não substitui verificação.<br>Mas ajuda a criar o hábito.</h2><div class="level-grid"><article><span>01</span><h3>Curioso</h3><p>Começa a reconhecer situações incomuns.</p></article><article><span>02</span><h3>Observador</h3><p>Percebe urgência, pressão e pedidos de dados.</p></article><article><span>03</span><h3>Verificador</h3><p>Confirma fontes e canais antes de agir.</p></article><article><span>04</span><h3>Protetor digital</h3><p>Compartilha orientações sem espalhar medo.</p></article></div></section>
+  </main>
+  <footer class="site-footer"><div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">✓</span><span>Compra <strong>Certa</strong></span></a><p>Segurança digital mais simples.</p></div><nav aria-label="Rodapé"><a href="index.html">Início</a><a href="aprenda.html">Aprenda</a><a href="desafios.html">Desafios</a></nav><p class="copyright">© 2026 Compra Certa</p></footer>
+  <script src="challenges.js"></script>
+  <script src="accessibility.js"></script>
+</body></html>
