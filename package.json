@@ -1,0 +1,16 @@
+{
+  "name": "compra-certa",
+  "version": "1.0.0",
+  "description": "Verificador de URLs com Google Safe Browsing.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2"
+  }
+}
